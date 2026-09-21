@@ -189,3 +189,492 @@ body.calm *,body.calm *:before,body.calm *:after{animation:none!important;transi
   }
 }
 
+/* ==========================================================================
+   02 · HOSPEDAGEM (Suas bases de conforto e estratégia)
+   ========================================================================== */
+.stays {
+  position: relative;
+  overflow: hidden;
+  background: #eef7f9;
+  padding: 135px 7vw 125px;
+}
+
+.stays-decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stays-decor svg {
+  width: 100%;
+  height: 100%;
+}
+
+.stays-decor-tl {
+  top: 0;
+  left: 0;
+  width: min(480px, 45vw);
+  height: min(380px, 35vw);
+}
+
+.stays-decor-br {
+  bottom: 0;
+  right: 0;
+  width: min(480px, 45vw);
+  height: min(380px, 35vw);
+}
+
+.stays-heading {
+  text-align: center;
+  max-width: 950px;
+  margin: 0 auto 65px;
+  position: relative;
+  z-index: 1;
+}
+
+.stays-heading .section-index {
+  display: inline-block;
+  border: 1px solid rgba(41, 162, 182, 0.35);
+  padding: 5px 14px;
+  border-radius: 4px;
+  font: 700 11px/1.5 'Manrope', sans-serif;
+  letter-spacing: 0.18em;
+  color: #268697;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.stays-heading h2 {
+  font: 800 clamp(2.3rem, 4.4vw, 4.2rem)/1.12 'Manrope', sans-serif;
+  letter-spacing: -0.04em;
+  color: #08404a;
+  margin: 0;
+}
+
+.stays-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1040px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  align-items: start;
+}
+
+.stay-capsule-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stay-capsule {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(6, 63, 70, 0.16);
+  background: #0c4a54;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
+}
+
+.stay-capsule:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 65px rgba(6, 63, 70, 0.25);
+}
+
+.capsule-header {
+  background: #0f4f5a;
+  padding: 24px 24px 20px;
+  text-align: center;
+}
+
+.capsule-header h3 {
+  font: 800 clamp(1.4rem, 2.2vw, 1.75rem)/1.18 'Manrope', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.stay-capsule .stay-image {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+}
+
+.stay-capsule .stay-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.stay-capsule:hover .stay-image img {
+  transform: scale(1.05);
+}
+
+.capsule-footer {
+  background: #0c454f;
+  padding: 18px 24px;
+  text-align: center;
+}
+
+.capsule-footer span {
+  font: 800 16px 'Manrope', sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: block;
+}
+
+.stay-features {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 0;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stay-features li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #2e4d52;
+  position: relative;
+  padding-left: 20px;
+}
+
+.stay-features li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  top: -1px;
+  color: #0c4a54;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media(max-width: 850px) {
+  .stays {
+    padding: 95px 22px 85px;
+  }
+  .stays-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+}
+
+/* ==========================================================================
+   03 · CONEXÕES À MESA (Gastronomia e Networking)
+   ========================================================================== */
+.networking {
+  position: relative;
+  overflow: hidden;
+  background: #134650;
+  color: #ffffff;
+  padding: 130px 7vw 125px;
+  display: block;
+}
+
+.networking-decor-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.networking-decor-bl svg {
+  width: 100%;
+  height: 100%;
+}
+
+.networking-head {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto 55px;
+  position: relative;
+  z-index: 1;
+}
+
+.networking-head .section-index {
+  display: inline-block;
+  border: 1px solid rgba(134, 227, 238, 0.4);
+  padding: 5px 14px;
+  border-radius: 4px;
+  font: 700 11px/1.5 'Manrope', sans-serif;
+  letter-spacing: 0.18em;
+  color: #8ce7f0;
+  margin-bottom: 20px;
+  background: rgba(6, 63, 70, 0.45);
+}
+
+.networking-head h2 {
+  font: 800 clamp(2.3rem, 4.4vw, 4rem)/1.12 'Manrope', sans-serif;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.food-quad-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.food-quad-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
+  background: #0c363d;
+}
+
+.food-quad-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.48);
+}
+
+.food-capsule-badge {
+  background: #d8edf1;
+  padding: 18px 24px 16px;
+  text-align: center;
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+}
+
+.food-capsule-badge h3 {
+  font: 800 clamp(1.15rem, 1.8vw, 1.45rem)/1.2 'Manrope', sans-serif;
+  color: #083c44;
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.top-capsule .food-capsule-badge {
+  border-radius: 26px 26px 0 0;
+}
+
+.top-capsule .food-quad-image {
+  border-radius: 0 0 26px 26px;
+  height: 230px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bottom-capsule .food-quad-image {
+  border-radius: 26px 26px 0 0;
+  height: 230px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bottom-capsule .food-capsule-badge {
+  border-radius: 0 0 26px 26px;
+}
+
+.food-quad-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.food-quad-card:hover .food-quad-image img {
+  transform: scale(1.05);
+}
+
+@media(max-width: 850px) {
+  .networking {
+    padding: 95px 22px 85px;
+  }
+  .food-quad-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .top-capsule .food-quad-image,
+  .bottom-capsule .food-quad-image {
+    height: 205px;
+  }
+}
+
+/* ==========================================================================
+   04 · VISITAS TÉCNICAS (Layout Split com Ícones Circulares)
+   ========================================================================== */
+.visits {
+  position: relative;
+  padding: 125px 7vw 115px;
+  background: #093740;
+  display: block;
+}
+
+.visits-split-container {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 35px 85px rgba(0, 0, 0, 0.45);
+}
+
+.visits-left-col {
+  background: #174852;
+  padding: 65px 55px;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.visits-left-decor {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 250px;
+  height: 250px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.visits-left-decor svg {
+  width: 100%;
+  height: 100%;
+}
+
+.visits-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 440px;
+}
+
+.visits-copy .section-index {
+  display: inline-block;
+  border: 1px solid rgba(134, 227, 238, 0.4);
+  padding: 5px 14px;
+  border-radius: 4px;
+  font: 700 11px/1.5 'Manrope', sans-serif;
+  letter-spacing: 0.18em;
+  color: #8ce7f0;
+  margin-bottom: 24px;
+  background: rgba(6, 63, 70, 0.45);
+}
+
+.visits-copy h2 {
+  font: 800 clamp(2.6rem, 4.6vw, 4.4rem)/1.08 'Manrope', sans-serif;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0 0 24px;
+}
+
+.visits-copy p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+.visits-right-col {
+  background: #ffffff;
+  padding: 60px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.visits-icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.visits-icon-list li {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  transition: transform 0.25s ease;
+}
+
+.visits-icon-list li:hover {
+  transform: translateX(6px);
+}
+
+.visit-circle-badge {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  border-radius: 50%;
+  background: #165662;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(22, 86, 98, 0.28);
+  transition: transform 0.25s ease, background-color 0.25s;
+}
+
+.visits-icon-list li:hover .visit-circle-badge {
+  transform: scale(1.08);
+  background: #1c6d7c;
+}
+
+.visit-item-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #165662;
+  letter-spacing: -0.01em;
+}
+
+@media(max-width: 900px) {
+  .visits {
+    padding: 95px 22px 85px;
+  }
+  .visits-split-container {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+  .visits-left-col {
+    padding: 45px 28px 40px;
+  }
+  .visits-right-col {
+    padding: 45px 28px;
+  }
+  .visits-icon-list {
+    gap: 24px;
+  }
+  .visit-circle-badge {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+  }
+  .visit-circle-badge svg {
+    width: 26px;
+    height: 26px;
+  }
+  .visit-item-text {
+    font-size: 17px;
+  }
+}
+
+

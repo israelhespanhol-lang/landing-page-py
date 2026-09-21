@@ -22,7 +22,7 @@
   <header class="nav" id="top">
     <a class="brand" href="#top" aria-label="Fronteira de Negócios — início"><span>F</span><b>FRONTEIRA</b><small>DE NEGÓCIOS</small></a>
     <nav aria-label="Navegação principal">
-      <a href="#experiencia">Experiência</a><a href="#hospedagem">Hospedagem</a><a href="#investimento">Investimento</a>
+      <a href="#experiencia">Experiência</a><a href="#hospedagem">Hospedagem</a><a href="#visitas">Visitas Técnicas</a><a href="#investimento">Investimento</a>
     </nav>
     <a class="nav-cta" href="#investimento">Quero participar</a>
   </header>
@@ -80,22 +80,272 @@
 
 
     <section class="stays" id="hospedagem">
-      <div class="section-title reveal"><div class="section-index">02 · SUAS BASES</div><h2>Conforto para descansar.<br><span>Localização para avançar.</span></h2></div>
-      <div class="stay-grid">
-        <article class="stay-card reveal"><div class="stay-image"><img src="assets/rio-hotel.jpg" alt="Fachada do Rio Hotel by Bourbon"><span>CIUDAD DEL ESTE</span></div><div class="stay-content"><small>BASE 01</small><h3>Rio Hotel by Bourbon</h3><p>Acesso facilitado aos polos comerciais, ambientes modernos, restaurante, bar e academia.</p></div></article>
-        <article class="stay-card offset reveal"><div class="stay-image"><img src="assets/dazzler.jpg" alt="Fachada noturna do Dazzler by Wyndham"><span>ASSUNÇÃO</span></div><div class="stay-content"><small>BASE 02</small><h3>Dazzler by Wyndham</h3><p>Infraestrutura contemporânea, piscina, academia e proximidade aos compromissos e à gastronomia.</p></div></article>
+      <!-- Decoração de ondas fluidas teal nos cantos -->
+      <div class="stays-decor stays-decor-tl" aria-hidden="true">
+        <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-50 -50 C 180 50, 100 260, -50 340 Z" fill="url(#tealWave1)" opacity="0.4"/>
+          <path d="M-50 -50 C 290 -10, 240 180, -50 250 Z" fill="url(#tealWave2)" opacity="0.65"/>
+          <path d="M-50 -50 C 370 -50, 330 90, -50 170 Z" fill="url(#tealWave3)" opacity="0.85"/>
+          <defs>
+            <linearGradient id="tealWave1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#042a30"/>
+              <stop offset="100%" stop-color="#196b78"/>
+            </linearGradient>
+            <linearGradient id="tealWave2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#063f46"/>
+              <stop offset="100%" stop-color="#248796"/>
+            </linearGradient>
+            <linearGradient id="tealWave3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#074852"/>
+              <stop offset="100%" stop-color="#115c67"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="stays-decor stays-decor-br" aria-hidden="true">
+        <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M650 450 C 420 350, 500 140, 650 60 Z" fill="url(#tealWaveBr1)" opacity="0.4"/>
+          <path d="M650 450 C 310 410, 360 220, 650 150 Z" fill="url(#tealWaveBr2)" opacity="0.65"/>
+          <path d="M650 450 C 230 450, 270 310, 650 230 Z" fill="url(#tealWaveBr3)" opacity="0.85"/>
+          <defs>
+            <linearGradient id="tealWaveBr1" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#042a30"/>
+              <stop offset="100%" stop-color="#196b78"/>
+            </linearGradient>
+            <linearGradient id="tealWaveBr2" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#063f46"/>
+              <stop offset="100%" stop-color="#248796"/>
+            </linearGradient>
+            <linearGradient id="tealWaveBr3" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#074852"/>
+              <stop offset="100%" stop-color="#115c67"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="stays-heading reveal">
+        <div class="section-index">02 · SUAS BASES</div>
+        <h2>Suas bases de conforto e estratégia</h2>
+      </div>
+
+      <div class="stays-grid">
+        <!-- Hotel 1: Rio Hotel by Bourbon -->
+        <article class="stay-capsule-card reveal">
+          <div class="stay-capsule">
+            <header class="capsule-header">
+              <h3>Rio Hotel by<br>Bourbon</h3>
+            </header>
+            <div class="stay-image">
+              <img src="assets/rio-hotel.jpg" alt="Fachada do Rio Hotel by Bourbon" loading="lazy">
+            </div>
+            <footer class="capsule-footer">
+              <span>CIUDAD DEL ESTE</span>
+            </footer>
+          </div>
+          <ul class="stay-features">
+            <li>Acesso facilitado aos polos comerciais.</li>
+            <li>Ambientes modernos e áreas funcionais.</li>
+            <li>Restaurantes, bar e academia.</li>
+            <li>A base perfeita para a programação principal.</li>
+          </ul>
+        </article>
+
+        <!-- Hotel 2: Dazzler by Wyndham -->
+        <article class="stay-capsule-card reveal">
+          <div class="stay-capsule">
+            <header class="capsule-header">
+              <h3>Dazzler by<br>Wyndham</h3>
+            </header>
+            <div class="stay-image">
+              <img src="assets/dazzler.jpg" alt="Fachada noturna do Dazzler by Wyndham" loading="lazy">
+            </div>
+            <footer class="capsule-footer">
+              <span>ASSUNÇÃO</span>
+            </footer>
+          </div>
+          <ul class="stay-features">
+            <li>Infraestrutura contemporânea e sofisticada.</li>
+            <li>Piscina, academia e alta conectividade.</li>
+            <li>Proximidade aos compromissos e a gastronomia.</li>
+            <li>O refúgio ideal na capital paraguaia.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <section class="networking">
-      <div class="network-intro reveal"><div class="section-index">03 · CONEXÕES À MESA</div><h2>Conversas que começam à mesa e continuam nos negócios.</h2><p>Quatro experiências gastronômicas escolhidas para criar encontros memoráveis.</p></div>
-      <div class="food-grid reveal"><figure><img src="assets/sax-palace.jpg" alt="Sax Palace"><figcaption>Sax Palace <span>01</span></figcaption></figure><figure><img src="assets/rooftop.jpg" alt="Churrascaria Gaúcho"><figcaption>Churrascaria Gaúcho <span>02</span></figcaption></figure><figure class="tall"><img src="assets/churrascaria.jpg" alt="Rooftop do Dazzler"><figcaption>Rooftop Dazzler <span>03</span></figcaption></figure><figure><img src="assets/distrito.jpg" alt="Distrito Brewing Company"><figcaption>Distrito Brewing Co. <span>04</span></figcaption></figure></div>
+      <!-- Decoração geométrica facetada no canto inferior esquerdo -->
+      <div class="networking-decor-bl" aria-hidden="true">
+        <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,220 0,60 160,220" fill="url(#netFacet1)" opacity="0.3"/>
+          <polygon points="0,220 0,120 100,220" fill="url(#netFacet2)" opacity="0.5"/>
+          <defs>
+            <linearGradient id="netFacet1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#2a7784"/>
+            </linearGradient>
+            <linearGradient id="netFacet2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#144d56"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="networking-head reveal">
+        <div class="section-index">03 · CONEXÕES À MESA</div>
+        <h2>Conexões à mesa: Gastronomia e Networking</h2>
+      </div>
+
+      <div class="food-quad-grid reveal">
+        <!-- Linha Superior 1: Sax Palace (pílula no topo) -->
+        <article class="food-quad-card top-capsule">
+          <header class="food-capsule-badge">
+            <h3>SAX PALACE</h3>
+          </header>
+          <div class="food-quad-image">
+            <img src="assets/sax-palace.jpg" alt="Sax Palace" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Linha Superior 2: Churrascaria Gaúcho (pílula no topo) -->
+        <article class="food-quad-card top-capsule">
+          <header class="food-capsule-badge">
+            <h3>CHURRASCARIA<br>GAÚCHO</h3>
+          </header>
+          <div class="food-quad-image">
+            <img src="assets/rooftop.jpg" alt="Churrascaria Gaúcho" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Linha Inferior 1: Rooftop Dazzler (pílula na base) -->
+        <article class="food-quad-card bottom-capsule">
+          <div class="food-quad-image">
+            <img src="assets/churrascaria.jpg" alt="Rooftop Dazzler" loading="lazy">
+          </div>
+          <footer class="food-capsule-badge">
+            <h3>ROOFTOP<br>DAZZLER</h3>
+          </footer>
+        </article>
+
+        <!-- Linha Inferior 2: Distrito Brewing Co. (pílula na base) -->
+        <article class="food-quad-card bottom-capsule">
+          <div class="food-quad-image">
+            <img src="assets/distrito.jpg" alt="Distrito Brewing Co." loading="lazy">
+          </div>
+          <footer class="food-capsule-badge">
+            <h3>DISTRITO<br>BREWING CO.</h3>
+          </footer>
+        </article>
+      </div>
     </section>
 
-    <section class="visits">
-      <div class="section-index light">04 · VISITAS TÉCNICAS</div>
-      <div class="visits-copy reveal"><h2>Conhecimento que vai além da teoria.</h2><p>Uma imersão em empresas e instituições para entender o mercado, gerar conexões e enxergar novas oportunidades.</p></div>
-      <div class="visit-list reveal"><div><span>01</span><h3>Embaixada do Brasil</h3><small>ASSUNÇÃO</small></div><div><span>02</span><h3>Maspy S.A.</h3><small>INDÚSTRIA</small></div><div><span>03</span><h3>Cellshop</h3><small>VAREJO & COMÉRCIO</small></div><div><span>04</span><h3>Mega Plásticos</h3><small>INDÚSTRIA</small></div></div>
+    <section class="visits" id="visitas">
+      <div class="visits-split-container reveal">
+        <!-- Coluna Esquerda: Dark Teal com Texto e Arcos Prateados -->
+        <div class="visits-left-col">
+          <div class="visits-left-decor" aria-hidden="true">
+            <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M-40 280 A 240 240 0 0 1 200 40" stroke="url(#silverGradient1)" stroke-width="48" opacity="0.45"/>
+              <path d="M-40 280 A 180 180 0 0 1 140 100" stroke="url(#silverGradient2)" stroke-width="36" opacity="0.65"/>
+              <path d="M-40 280 A 120 120 0 0 1 80 160" stroke="url(#silverGradient3)" stroke-width="26" opacity="0.85"/>
+              <defs>
+                <linearGradient id="silverGradient1" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#2d4a50"/>
+                  <stop offset="50%" stop-color="#b8cbcf"/>
+                  <stop offset="100%" stop-color="#eaf2f4"/>
+                </linearGradient>
+                <linearGradient id="silverGradient2" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#37555b"/>
+                  <stop offset="50%" stop-color="#ccd9dc"/>
+                  <stop offset="100%" stop-color="#ffffff"/>
+                </linearGradient>
+                <linearGradient id="silverGradient3" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#416168"/>
+                  <stop offset="50%" stop-color="#dce6e8"/>
+                  <stop offset="100%" stop-color="#ffffff"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="visits-copy">
+            <div class="section-index light">04 · VISITAS TÉCNICAS</div>
+            <h2>Visitas<br>técnicas:</h2>
+            <p>Conhecimento que vai além da teoria. Uma imersão em empresas e instituições para entender o mercado, gerar conexões e enxergar novas oportunidades.</p>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Fundo Branco com Ícones Circulares -->
+        <div class="visits-right-col">
+          <ul class="visits-icon-list">
+            <!-- 01: Embaixada do Brasil -->
+            <li>
+              <div class="visit-circle-badge" aria-hidden="true">
+                <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 2 L21 3.5 L16 5 V12" />
+                  <path d="M5 12 L16 5 L27 12" />
+                  <line x1="8" y1="12" x2="8" y2="24" />
+                  <line x1="13" y1="12" x2="13" y2="24" />
+                  <line x1="19" y1="12" x2="19" y2="24" />
+                  <line x1="24" y1="12" x2="24" y2="24" />
+                  <line x1="4" y1="24" x2="28" y2="24" />
+                  <line x1="2" y1="27" x2="30" y2="27" />
+                </svg>
+              </div>
+              <span class="visit-item-text">Embaixada do Brasil em Assunção.</span>
+            </li>
+
+            <!-- 02: Maspy S.A -->
+            <li>
+              <div class="visit-circle-badge" aria-hidden="true">
+                <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 6 H24 V27 H14 Z" />
+                  <path d="M6 12 H14 V27 H6 Z" />
+                  <line x1="18" y1="10" x2="20" y2="10" />
+                  <line x1="18" y1="14" x2="20" y2="14" />
+                  <line x1="18" y1="18" x2="20" y2="18" />
+                  <line x1="18" y1="22" x2="20" y2="22" />
+                  <line x1="9" y1="16" x2="11" y2="16" />
+                  <line x1="9" y1="20" x2="11" y2="20" />
+                  <line x1="4" y1="27" x2="28" y2="27" />
+                </svg>
+              </div>
+              <span class="visit-item-text">Maspy S.A</span>
+            </li>
+
+            <!-- 03: Cellshop -->
+            <li>
+              <div class="visit-circle-badge" aria-hidden="true">
+                <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="6" width="16" height="12" rx="2" />
+                  <path d="M12 18 V22 M8 22 H16" />
+                  <rect x="18" y="12" width="10" height="14" rx="2" />
+                  <line x1="23" y1="23" x2="23.01" y2="23" />
+                </svg>
+              </div>
+              <span class="visit-item-text">Cellshop</span>
+            </li>
+
+            <!-- 04: Mega Plásticos -->
+            <li>
+              <div class="visit-circle-badge" aria-hidden="true">
+                <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 26 V16 L10 20 V16 L16 20 V10 H28 V26 H4 Z" />
+                  <line x1="20" y1="10" x2="20" y2="6" />
+                  <line x1="24" y1="10" x2="24" y2="6" />
+                  <line x1="9" y1="22" x2="11" y2="22" />
+                  <line x1="15" y1="22" x2="17" y2="22" />
+                  <line x1="21" y1="22" x2="23" y2="22" />
+                  <line x1="2" y1="26" x2="30" y2="26" />
+                </svg>
+              </div>
+              <span class="visit-item-text">Mega Plásticos</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="pricing" id="investimento">

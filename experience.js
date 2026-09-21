@@ -11,7 +11,7 @@
   control.onclick = () => { calm = !calm; setMotion(); };
   document.body.append(control); setMotion();
 
-  const photos = [...document.querySelectorAll('.stay-image img, .food-grid img')];
+  const photos = [...document.querySelectorAll('.stay-image img, .food-grid img, .food-quad-image img')];
   const viewer = document.createElement('dialog');
   viewer.className = 'image-viewer';
   viewer.setAttribute('aria-labelledby', 'viewer-title');
