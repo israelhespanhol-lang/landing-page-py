@@ -16,8 +16,64 @@ const STORAGE_KEY_ACCESS = "fn_access_granted";
 const STORAGE_KEY_LEADS = "fn_leads_backup";
 
 (() => {
-  // Se o visitante já liberou o acesso anteriormente, não exibe o modal
-  if (localStorage.getItem(STORAGE_KEY_ACCESS) === "true") {
+  // Helper: Ler cookie
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
+
+  // Helper: Gravar cookie persistente (365 dias)
+  function setCookie(name, val, days = 365) {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${val}; expires=${date.toUTCString()}; path=/; SameSite=Lax`;
+  }
+
+  // Sistema Inteligente de Reconhecimento de Cliente
+  function isReturningClient() {
+    // 1. Verifica parâmetro na URL para links diretos/campanhas (ex: ?cliente=1, ?vip=1, ?acesso=liberado)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (
+        urlParams.get("cliente") === "1" ||
+        urlParams.get("vip") === "1" ||
+        urlParams.get("acesso") === "liberado" ||
+        urlParams.has("w") ||
+        urlParams.has("whatsapp") ||
+        urlParams.has("lead")
+      ) {
+        localStorage.setItem(STORAGE_KEY_ACCESS, "true");
+        setCookie(STORAGE_KEY_ACCESS, "true", 365);
+        return true;
+      }
+    } catch (e) {}
+
+    // 2. Verifica LocalStorage
+    if (localStorage.getItem(STORAGE_KEY_ACCESS) === "true") {
+      setCookie(STORAGE_KEY_ACCESS, "true", 365); // Sincroniza cookie
+      return true;
+    }
+
+    // 3. Verifica Cookie persistente (caso o LocalStorage tenha sido limpo ou em navegadores in-app)
+    if (getCookie(STORAGE_KEY_ACCESS) === "true") {
+      localStorage.setItem(STORAGE_KEY_ACCESS, "true"); // Sincroniza localStorage
+      return true;
+    }
+
+    // 4. Verifica se já existe telefone de lead salvo anteriormente no aparelho
+    if (localStorage.getItem("fn_lead_phone") || getCookie("fn_lead_phone")) {
+      localStorage.setItem(STORAGE_KEY_ACCESS, "true");
+      setCookie(STORAGE_KEY_ACCESS, "true", 365);
+      return true;
+    }
+
+    return false;
+  }
+
+  // Se o visitante já liberou o acesso anteriormente ou já é cliente, não exibe o modal
+  if (isReturningClient()) {
     return;
   }
 
@@ -131,10 +187,20 @@ const STORAGE_KEY_LEADS = "fn_leads_backup";
       userAgent: navigator.userAgent
     };
 
-    // 1. Salva backup garantido no LocalStorage do navegador
+    // 1. Salva backup garantido no LocalStorage com Anti-Duplicação
     try {
       const existingLeads = JSON.parse(localStorage.getItem(STORAGE_KEY_LEADS) || "[]");
-      existingLeads.push(payload);
+      const existingIndex = existingLeads.findIndex(
+        (l) => (l.whatsapp || "").replace(/\D/g, "") === digitsOnly
+      );
+
+      if (existingIndex >= 0) {
+        // Atualiza o lead já existente em vez de duplicar
+        existingLeads[existingIndex].dataHoraRetorno = payload.dataHora;
+        existingLeads[existingIndex].nome = nome;
+      } else {
+        existingLeads.push(payload);
+      }
       localStorage.setItem(STORAGE_KEY_LEADS, JSON.stringify(existingLeads));
     } catch (err) {
       console.warn("Não foi possível salvar no localStorage:", err);
@@ -176,10 +242,16 @@ const STORAGE_KEY_LEADS = "fn_leads_backup";
       });
     }
 
-    // 4. Feedback de sucesso e liberação da página
+    // 4. Feedback de sucesso e memorização permanente do cliente
     form.style.display = "none";
     successBox.classList.add("visible");
+    
+    // Salva em múltiplas camadas (LocalStorage + Cookie de 365 dias)
     localStorage.setItem(STORAGE_KEY_ACCESS, "true");
+    localStorage.setItem("fn_lead_name", nome);
+    localStorage.setItem("fn_lead_phone", digitsOnly);
+    setCookie(STORAGE_KEY_ACCESS, "true", 365);
+    setCookie("fn_lead_phone", digitsOnly, 365);
 
     // Fecha o modal suavemente e libera o scroll da landing page
     setTimeout(() => {

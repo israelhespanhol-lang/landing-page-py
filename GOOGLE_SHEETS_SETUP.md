@@ -44,6 +44,34 @@ function doPost(e) {
     var whatsapp = (e && e.parameter && e.parameter.whatsapp) || data.whatsapp || "";
     var origem = (e && e.parameter && e.parameter.origem) || data.origem || "Landing Page";
     
+    // 🛡️ SISTEMA ANTI-DUPLICAÇÃO DE LEADS
+    // Compara apenas os números do WhatsApp (sem parênteses, traços ou espaços)
+    var cleanPhone = whatsapp.toString().replace(/\D/g, "");
+    var lastRow = sheet.getLastRow();
+    var isDuplicate = false;
+    var existingRow = -1;
+    
+    if (lastRow > 1 && cleanPhone.length >= 8) {
+      var phoneValues = sheet.getRange(2, 3, lastRow - 1, 1).getValues(); // Coluna C (WhatsApp)
+      for (var i = 0; i < phoneValues.length; i++) {
+        var rowPhone = phoneValues[i][0].toString().replace(/\D/g, "");
+        if (rowPhone === cleanPhone || (rowPhone.length >= 8 && cleanPhone.indexOf(rowPhone) !== -1)) {
+          isDuplicate = true;
+          existingRow = i + 2;
+          break;
+        }
+      }
+    }
+    
+    if (isDuplicate) {
+      // Atualiza nota da linha já cadastrada com o novo acesso, SEM duplicar a linha na planilha
+      sheet.getRange(existingRow, 1).setNote("Retorno recente: " + timestamp + " via " + origem);
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: "exists", message: "Lead já existente. Registro atualizado sem duplicação." }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    // Se for novo lead, insere a nova linha normalmente
     sheet.appendRow([timestamp, nome, whatsapp, origem]);
     
     return ContentService
