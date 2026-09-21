@@ -719,13 +719,13 @@ body.calm *,body.calm *:before,body.calm *:after{animation:none!important;transi
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 22px;
 }
 
 .visits-icon-list li {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 22px;
   transition: transform 0.25s ease;
 }
 
@@ -734,9 +734,9 @@ body.calm *,body.calm *:before,body.calm *:after{animation:none!important;transi
 }
 
 .visit-circle-badge {
-  width: 70px;
-  height: 70px;
-  min-width: 70px;
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
   border-radius: 50%;
   background: #165662;
   display: grid;
