@@ -1113,6 +1113,18 @@ body.calm *,body.calm *:before,body.calm *:after{animation:none!important;transi
   .nav-whatsapp {
     display: none;
   }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .hero-actions .button.primary,
+  .hero-actions .text-link,
+  .hero-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
   .visitas-contact-strip {
     margin: 30px 0 0;
   }
@@ -1120,10 +1132,8 @@ body.calm *,body.calm *:before,body.calm *:after{animation:none!important;transi
     width: 100%;
     justify-content: center;
   }
-
-  .hero-whatsapp-btn {
-    width: 100%;
-    justify-content: center;
+  footer {
+    padding-bottom: 95px !important;
   }
   .footer-contact {
     width: 100%;
