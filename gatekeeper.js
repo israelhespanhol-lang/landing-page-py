@@ -10,7 +10,7 @@
  */
 
 // 👉 COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT (conforme o arquivo GOOGLE_SHEETS_SETUP.md)
-const GOOGLE_SHEETS_URL = ""; 
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwT-F95eTrvwAlVkgvBtBCTaar32IPDcmIR7X89LLQ7rGcD2fyE5BKwmiZ2yYQv4ZH8/exec";
 
 const STORAGE_KEY_ACCESS = "fn_access_granted";
 const STORAGE_KEY_LEADS = "fn_leads_backup";
@@ -149,7 +149,7 @@ const STORAGE_KEY_LEADS = "fn_leads_backup";
         formData.append("origem", "Landing Page Paraguai 2026");
         formData.append("dataHora", payload.dataHora);
 
-        const timeoutPromise = new Promise((_, reject) => 
+        const timeoutPromise = new Promise((_, reject) =>
           setTimeout(() => reject(new Error("Timeout")), 4500)
         );
 
