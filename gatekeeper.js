@@ -168,7 +168,15 @@ const STORAGE_KEY_LEADS = "fn_leads_backup";
       console.info("💡 Lead salvo no backup local! Configure GOOGLE_SHEETS_URL em gatekeeper.js para sincronizar com sua planilha.");
     }
 
-    // 3. Feedback de sucesso e liberação da página
+    // 3. Dispara evento de conversão para o Google Analytics (GA4)
+    if (typeof gtag === "function") {
+      gtag("event", "generate_lead", {
+        event_category: "Leads",
+        event_label: "Acesso Liberado Imersao"
+      });
+    }
+
+    // 4. Feedback de sucesso e liberação da página
     form.style.display = "none";
     successBox.classList.add("visible");
     localStorage.setItem(STORAGE_KEY_ACCESS, "true");
@@ -178,6 +186,18 @@ const STORAGE_KEY_LEADS = "fn_leads_backup";
       overlay.classList.remove("active");
       document.body.classList.remove("gatekeeper-locked");
     }, 1100);
+  });
+
+  // Rastreia cliques em links do WhatsApp para o Google Analytics
+  document.querySelectorAll('a[href*="wa.me"]').forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (typeof gtag === "function") {
+        gtag("event", "contact_whatsapp", {
+          event_category: "Contato",
+          event_label: btn.innerText.replace(/\s+/g, " ").trim() || "Botão WhatsApp"
+        });
+      }
+    });
   });
 })();
 
