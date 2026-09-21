@@ -187,18 +187,38 @@ const STORAGE_KEY_LEADS = "fn_leads_backup";
       document.body.classList.remove("gatekeeper-locked");
     }, 1100);
   });
+})();
 
-  // Rastreia cliques em links do WhatsApp para o Google Analytics
-  document.querySelectorAll('a[href*="wa.me"]').forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (typeof gtag === "function") {
-        gtag("event", "contact_whatsapp", {
-          event_category: "Contato",
-          event_label: btn.innerText.replace(/\s+/g, " ").trim() || "Botão WhatsApp"
-        });
-      }
+// ==========================================================================
+// Rastreamento Global de Cliques no WhatsApp (Google Analytics 4)
+// ==========================================================================
+(() => {
+  function initWhatsAppTracking() {
+    document.querySelectorAll('a[href*="wa.me"]').forEach((btn) => {
+      if (btn.dataset.waTracked) return;
+      btn.dataset.waTracked = "true";
+
+      btn.addEventListener("click", () => {
+        const label =
+          btn.getAttribute("aria-label") ||
+          btn.innerText.replace(/\s+/g, " ").trim() ||
+          "Botão WhatsApp";
+
+        if (typeof gtag === "function") {
+          gtag("event", "contact_whatsapp", {
+            event_category: "Contato WhatsApp",
+            event_label: label
+          });
+        }
+      });
     });
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWhatsAppTracking);
+  } else {
+    initWhatsAppTracking();
+  }
 })();
 
 // ==========================================================================
