@@ -12,6 +12,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23063f46'/%3E%3Cpath d='M15 17h35v9H26v7h20v9H26v13H15z' fill='%2386d9e7'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="experience.css">
+  <link rel="stylesheet" href="gatekeeper.css">
 </head>
 <body>
   <a class="skip-link" href="#experiencia">Pular para o conteúdo</a>
@@ -112,7 +113,53 @@
   <a class="mobile-cta" href="#investimento">Quero participar <span>↗</span></a>
 
   <footer><div class="footer-brand"><b>FRONTEIRA</b><span>DE NEGÓCIOS</span></div><p>Uma realização</p><div class="partners"><strong>ultravel <small>VIAGENS</small></strong><i>×</i><strong>mais viagens</strong></div><a href="#top">VOLTAR AO TOPO ↑</a></footer>
+  <!-- Modal de Captura de Lead (Gatekeeper) -->
+  <div id="gatekeeperOverlay" class="gatekeeper-overlay" role="dialog" aria-modal="true" aria-labelledby="gatekeeperTitle">
+    <div class="gatekeeper-modal">
+      <div class="gatekeeper-badge">Acesso Exclusivo</div>
+      <h2 id="gatekeeperTitle" class="gatekeeper-title">Libere o acesso à <em>imersão.</em></h2>
+      <p class="gatekeeper-desc">Informe seu nome e WhatsApp para visualizar a programação completa, visitas técnicas e investimento da edição Paraguai 2026.</p>
+
+      <form id="gatekeeperForm" class="gatekeeper-form" novalidate>
+        <div class="gatekeeper-field">
+          <label for="gatekeeperName">Seu Nome Completo</label>
+          <div class="gatekeeper-input-wrapper">
+            <span class="gatekeeper-icon" aria-hidden="true">👤</span>
+            <input type="text" id="gatekeeperName" class="gatekeeper-input" placeholder="Ex: Roberto Silva" autocomplete="name" required>
+          </div>
+          <span id="gatekeeperNameError" class="gatekeeper-error-msg"></span>
+        </div>
+
+        <div class="gatekeeper-field">
+          <label for="gatekeeperPhone">Seu WhatsApp</label>
+          <div class="gatekeeper-input-wrapper">
+            <span class="gatekeeper-icon" aria-hidden="true">📱</span>
+            <input type="tel" id="gatekeeperPhone" class="gatekeeper-input" placeholder="(11) 99999-9999" autocomplete="tel" required maxlength="15">
+          </div>
+          <span id="gatekeeperPhoneError" class="gatekeeper-error-msg"></span>
+        </div>
+
+        <button type="submit" id="gatekeeperSubmitBtn" class="gatekeeper-btn">
+          <span class="gatekeeper-btn-text">Liberar Acesso Agora ↗</span>
+          <span class="gatekeeper-spinner" aria-hidden="true"></span>
+        </button>
+
+        <div class="gatekeeper-footer">
+          <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          <span>Seus dados estão protegidos. Não enviamos spam.</span>
+        </div>
+      </form>
+
+      <div id="gatekeeperSuccessBox" class="gatekeeper-success-box">
+        <div class="gatekeeper-success-icon">✓</div>
+        <h3 class="gatekeeper-success-title">Acesso Liberado!</h3>
+        <p class="gatekeeper-success-desc">Bem-vindo(a) à imersão Fronteira de Negócios. Aproveite a apresentação.</p>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
   <script src="experience.js"></script>
+  <script src="gatekeeper.js"></script>
 </body>
 </html>
