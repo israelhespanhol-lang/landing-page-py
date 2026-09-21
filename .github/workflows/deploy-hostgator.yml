@@ -1,0 +1,33 @@
+name: Deploy HostGator
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  web-deploy:
+    name: Deploy to HostGator via FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Obter código do repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 🚀 Sincronizar arquivos com a HostGator
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
+          username: ${{ secrets.HOSTGATOR_FTP_USER }}
+          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
+          server-dir: ${{ secrets.HOSTGATOR_REMOTE_DIR || 'public_html/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.gemini/**
+            **/node_modules/**
+            *.md
+            *.ps1
+            *.zip
