@@ -20,6 +20,12 @@ Siga este passo a passo rápido (leva menos de 2 minutos) para conectar sua plan
 2. Apague qualquer código existente no editor e cole o código abaixo:
 
 ```javascript
+function doGet(e) {
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "ok", message: "Planilha conectada e pronta para receber leads!" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
