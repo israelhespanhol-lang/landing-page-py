@@ -23,18 +23,20 @@ Siga este passo a passo rápido (leva menos de 2 minutos) para conectar sua plan
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data;
+    var data = {};
     
-    if (e.postData.type === "application/json") {
-      data = JSON.parse(e.postData.contents);
-    } else {
-      data = e.parameter;
+    if (e && e.postData && e.postData.contents) {
+      try {
+        data = JSON.parse(e.postData.contents);
+      } catch (err) {
+        data = {};
+      }
     }
     
     var timestamp = Utilities.formatDate(new Date(), "America/Sao_Paulo", "dd/MM/yyyy HH:mm:ss");
-    var nome = data.nome || "";
-    var whatsapp = data.whatsapp || "";
-    var origem = data.origem || "Landing Page";
+    var nome = (e && e.parameter && e.parameter.nome) || data.nome || "";
+    var whatsapp = (e && e.parameter && e.parameter.whatsapp) || data.whatsapp || "";
+    var origem = (e && e.parameter && e.parameter.origem) || data.origem || "Landing Page";
     
     sheet.appendRow([timestamp, nome, whatsapp, origem]);
     

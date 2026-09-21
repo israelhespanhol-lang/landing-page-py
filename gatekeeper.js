@@ -143,17 +143,20 @@ const STORAGE_KEY_LEADS = "fn_leads_backup";
     // 2. Envia para o Google Sheets (se a URL estiver configurada)
     if (GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL.trim() !== "") {
       try {
+        const formData = new FormData();
+        formData.append("nome", nome);
+        formData.append("whatsapp", phoneValue);
+        formData.append("origem", "Landing Page Paraguai 2026");
+        formData.append("dataHora", payload.dataHora);
+
         const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error("Timeout")), 4000)
+          setTimeout(() => reject(new Error("Timeout")), 4500)
         );
 
         const fetchPromise = fetch(GOOGLE_SHEETS_URL, {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
+          body: formData
         });
 
         // Aguarda envio ou timeout para nunca travar a experiência do lead
