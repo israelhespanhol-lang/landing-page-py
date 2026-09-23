@@ -24,9 +24,9 @@ O pacote **`site-pronto-hostgator.zip`** já foi gerado na raiz do projeto com t
 
 ## 🔄 Método 2: Deploy Automático com GitHub Actions (CI/CD)
 
-Se você utiliza o repositório GitHub (`main`), o fluxo de deploy automático já foi criado no arquivo [`.github/workflows/deploy-hostgator.yml`](.github/workflows/deploy-hostgator.yml).
+Se você utiliza o repositório GitHub (`main`), o fluxo de deploy automático já foi criado no arquivo [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-Toda vez que você fizer `git push` para a branch `main`, o GitHub enviará os arquivos atualizados automaticamente para a HostGator.
+Toda vez que você fizer `git push` para a branch `main` ou `master`, o GitHub enviará os arquivos atualizados automaticamente para a HostGator.
 
 ### Como configurar em 3 passos:
 
@@ -36,10 +36,9 @@ Toda vez que você fizer `git push` para a branch `main`, o GitHub enviará os a
 
 | Nome do Secret | Descrição | Exemplo |
 | :--- | :--- | :--- |
-| `HOSTGATOR_FTP_SERVER` | Servidor ou IP do FTP da HostGator | `ftp.seudominio.com.br` ou `162.241.x.x` |
-| `HOSTGATOR_FTP_USER` | Usuário de FTP ou usuário do cPanel | `seu_usuario@seudominio.com.br` |
-| `HOSTGATOR_FTP_PASSWORD` | Senha da conta de FTP | `SuaSenhaForte123` |
-| `HOSTGATOR_REMOTE_DIR` | (Opcional) Pasta de destino | `public_html/` |
+| `FTP_SERVER` | Servidor ou IP do FTP da HostGator | `ftp.fronteira.grupos-ultravel.com` ou IP do painel |
+| `FTP_USERNAME` | Usuário de FTP ou usuário do cPanel | `seu_usuario@fronteira.grupos-ultravel.com` |
+| `FTP_PASSWORD` | Senha da conta de FTP | `SuaSenhaForte123` |
 
 ---
 
